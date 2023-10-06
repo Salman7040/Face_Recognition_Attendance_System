@@ -22,8 +22,8 @@ except Exception as e:
 
 
 cursor=connection.cursor()
-insert_query = "INSERT INTO sec_pass(user_pass) VALUES (%s)"
-data_to_insert = ("yash111",)
+insert_query = ("INSERT INTO att (std_name,att_time,att_date) VALUES (%s, %s, %s)")
+data_to_insert = ("yash111","12:11","12/9/2023")
 try:
     cursor.execute(insert_query,data_to_insert)
     connection.commit()

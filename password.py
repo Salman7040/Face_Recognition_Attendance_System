@@ -22,13 +22,6 @@ except Exception as e:
 
 cursor=connection.cursor()
 
-
-
-
-
-
-
-
 root=Tk()
 root.geometry("300x300")
 
@@ -62,7 +55,7 @@ def forgot():
 def rem_data():
     rem_data=Tk()
     rem_data.geometry("400x400")
-    Label(rem_data,text="delete your ms data")
+    Label(rem_data,text="delete your ms data").pack()
 
 
 def cheking_pass(pass_cheking):

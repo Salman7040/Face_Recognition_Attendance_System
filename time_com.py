@@ -12,16 +12,20 @@ def time_set():
     cu_tm = cu_tm.strftime("%I:%M:%S")
     hr_set=StringVar(set_t)
     mi_set=StringVar(set_t)
+    lec_name=StringVar(set_t)
     Label(set_t,text=f"Current Time :{cu_tm}").pack()
+    Label(set_t,text="Enter The Name Of Lecture ").pack()
+    Entry(set_t,textvariable=lec_name).pack()
     Label(set_t,text="Enter Hours").pack()
     Entry(set_t,textvariable=hr_set).pack()
 
     Label(set_t,text="Enter Minuts").pack()
     Entry(set_t,textvariable=mi_set).pack()
-    Button(set_t,text="Set Timer",command=lambda:start(hr_set.get(),mi_set.get(),"on",set_t)).pack()
+    Button(set_t,text="Set Timer",command=lambda:start(hr_set.get(),mi_set.get(),"on",set_t,lec_name.get())).pack()
         
 
-def start(hr_get,mi_get,st,des):
+def start(hr_get,mi_get,st,des,lec):
+    print(lec)
     if des!="off" :
         des.destroy()
     while True:
@@ -32,7 +36,7 @@ def start(hr_get,mi_get,st,des):
             if cu_tm>=tm1:
                 print("equal",cu_tm)
                 break
-        print("hello")
+        
                
 
     
