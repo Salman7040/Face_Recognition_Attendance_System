@@ -212,11 +212,22 @@ def main(des):
 
 
         def emailVerify():
+            sendEmail=True
             if(email_id.get()==""):
                 messagebox.showerror("Text Box Empty Exception","Keep Fill The Student Email Id In Text Box..")
+                sendEmail=False
             else:
-                OTPGoted=mailSendToStudent(email_id.get())
-                Entry(
+                if email_id.get().count('@')==0 and email_id.get().count('.')==0:
+                    Semail_id=f"{email_id.get()}@gmail.com"
+                    sendEmail=True
+                elif email_id.get().count('@')>=2 or email_id.get().count('.')>=2 :
+                    messagebox.showerror("Invalid Email Exception","Keep Check Your Email IS Not Valid..!")
+                    sendEmail=False
+                else:
+                    Semail_id=email_id.get()
+                if(sendEmail==True):
+                    OTPGoted=mailSendToStudent(Semail_id)
+                    Entry(
                     reg,
                     textvariable=email_OTP,
                     font=("Varela Round", 20,"bold"),
@@ -226,7 +237,7 @@ def main(des):
 
                     width=9
                      ).place(x=950, y=150)
-                Button(
+                    Button(
                      reg,
                      text="Verify OTP",
                      command=lambda:validateOTP(OTPGoted),
@@ -237,7 +248,7 @@ def main(des):
                      fg="white",
                      width=8,
                 ).place(x=1100, y=350)
-                messagebox.showinfo("Verification Code","OTP SuccessFully Sended To Your Email... ")
+                    messagebox.showinfo("Verification Code","OTP SuccessFully Sended To Your Email... ")
 
 
 

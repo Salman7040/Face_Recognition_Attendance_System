@@ -20,14 +20,9 @@ def showingAttendanceStatus():
     cursor = connection.cursor()
 
     img_name = []
-    only_name=[]
     folder_dir = "./my_image"
     for images in os.listdir(folder_dir):
-        img_name.append(images.split("."))
-
-
-    for i in img_name:
-        only_name.append(i[:1])
+        img_name.append(images.split(".")[:1])
 
 
     sql_query = "SELECT * FROM att "
@@ -96,10 +91,10 @@ def showingAttendanceStatus():
 
     myString=""
     nextmv = 1
-    for res in only_name:
+    for res in img_name:
         Label(
                 frame,
-                text=myString.join(res),
+                text=myString.join(res).strip(),
                 borderwidth=2,
                 relief="solid",
                 font=("Varela Round", 20),
