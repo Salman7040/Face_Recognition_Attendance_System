@@ -25,7 +25,6 @@ for x in img_name:
 		break
 
 
-
 for i in range(len(keys)):
 	nameAndEmail[keys[i]] = values[i]
 

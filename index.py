@@ -206,6 +206,7 @@ def main(des):
         def validateOTP(otp):
             if int(otp)==int(email_OTP.get()):
                 messagebox.showinfo("OTP Match","Email Added In DataBase")
+                op_camera()
             else:
                 messagebox.showerror("OTP Not Match","Check Again Your Verification Code")
 
@@ -433,7 +434,7 @@ def main(des):
                     if st == "on":
                         tm1 = f"{hr_get}:{mi_get}:00"
                         print(tm1, "\t", ontime)
-                        if ontime == tm1:
+                        if ontime >= tm1:
                             cv2.destroyAllWindows()
                             cap.release()
                             break
