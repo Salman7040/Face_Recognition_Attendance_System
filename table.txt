@@ -1,0 +1,7 @@
+CREATE TABLE `att` (
+  `std_name` varchar(30) DEFAULT NULL,
+  `att_time` varchar(15) DEFAULT NULL,
+  `att_date` varchar(15) DEFAULT NULL,
+  `attStatus` varchar(2) DEFAULT NULL,
+  `teacherName` varchar(30) DEFAULT NULL
+) 
